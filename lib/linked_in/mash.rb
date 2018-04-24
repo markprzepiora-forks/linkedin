@@ -6,6 +6,7 @@ module LinkedIn
   # The generalized pseudo-object that is returned for all query
   # requests.
   class Mash < ::Hashie::Mash
+    disable_warnings
 
     # Convert a json string to a Mash
     #
