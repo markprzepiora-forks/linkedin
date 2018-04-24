@@ -102,6 +102,18 @@ module LinkedIn
         post(path, MultiJson.dump(defaults.merge(share)), "Content-Type" => "application/json")
       end
 
+      # Fetch a share for a company that the authenticated user administers
+      #
+      # Permissions: rw_company_admin
+      #
+      # @param [String] company_id Company ID
+      # @param [String] update_key The post ID
+      # @return [LinkedIn::Mash]
+      def get_company_share(company_id, update_key, options={})
+        path = "/companies/#{company_id}/updates/key=#{update_key}"
+        simple_query(path, options)
+      end
+
       # (Create) authenticated user starts following a company
       #
       # @see http://developer.linkedin.com/documents/company-follow-and-suggestions
