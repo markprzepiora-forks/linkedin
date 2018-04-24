@@ -20,19 +20,19 @@ module LinkedIn
         def post(path, body='', options={})
           response = access_token.post("#{API_PATH}#{path}", {:body => body, :headers => DEFAULT_HEADERS.merge(options)})
           raise_errors(response)
-          response.body
+          response
         end
 
         def put(path, body, options={})
           response = access_token.put("#{API_PATH}#{path}", {:body => body, :headers => DEFAULT_HEADERS.merge(options)})
           raise_errors(response)
-          response.body
+          response
         end
 
         def delete(path, options={})
           response = access_token.delete("#{API_PATH}#{path}", {:headers => DEFAULT_HEADERS.merge(options)})
           raise_errors(response)
-          response.body
+          response
         end
 
       private
